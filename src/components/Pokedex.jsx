@@ -13,6 +13,7 @@ import {
     SearchType
 } from './StyledComponents'
 import Pagination from './Pagination';
+import GoBack from './GoBack';
 
 const Pokedex = () => {
 
@@ -53,6 +54,7 @@ const Pokedex = () => {
 
     return (
         <CoverContainer>
+            <GoBack/>
             <Logo src='/assets/logo.png' />
             <WelcomeContainer>
                 <h4><span>Welcome {user}</span> this is your pokedex</h4>
@@ -78,6 +80,7 @@ const Pokedex = () => {
                         <input
                             value={pokemonSearch}
                             onChange={res => setPokemoSearch(res.target.value)}
+                            placeholder='Search by name or id...'
                         />
                         <SearchButton>
                             <img src='/assets/pokeballAnimated.webp' />

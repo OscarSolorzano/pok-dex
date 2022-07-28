@@ -14,7 +14,11 @@ export const CoverContainer = styled.div`
     color: ${({ theme }) => theme.text};
     position: relative;
     overflow: hidden;
-`;
+
+    h1{
+        z-index: 2;
+    }
+`
 
 export const BackgroundLogo = styled.img`
     position: absolute;
@@ -37,7 +41,42 @@ export const BackgroundLogo = styled.img`
         transform: rotate(360deg);
     }
 }
-`;
+`
+
+export const SettingsButton = styled.button`
+    width: 3rem;
+    height: 3rem;
+    border-radius: 50%;
+    border: none;
+    position: fixed;
+    bottom: 1rem;
+    right: 1rem;
+
+    :hover{
+        animation: rotateAnim 1s linear;
+        transition: ease-in-out .5s;
+    }
+
+    @keyframes rotateAnim {
+        0% {
+            transform: rotate(0deg);
+        }
+        100% {
+            transform: rotate(360deg);
+        }
+    }
+`
+
+export const BackButton = styled.button`
+    width: 4rem;
+    height: 4rem;
+    background-color: transparent;
+    position: absolute;
+    border: none;
+    top: 1rem;
+    left: 1rem;
+    
+`
 
 // User Input Components
 
@@ -104,7 +143,25 @@ export const UsernameForm = styled.form`
 // Settings
 
 export const SettingContainer = styled.div`
+    width: 90%;
+    border-style: solid;
+    padding: 1rem;
+    margin: 1rem;
+    border-radius: 1rem;
 
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    z-index: 2;
+
+    div{
+        display: flex;
+        align-items: center;
+        justify-content: space-evenly;
+    }
+    h3{
+        padding: 1rem 2rem;;
+    }
 `;
 
 export const SwitchBackground = styled.div`
@@ -128,12 +185,22 @@ export const SwitchButton = styled.button`
         border: none;
         transition: .5s all ease-in;
 `
+export const PaginationButton = styled.button`
+    width: 3rem;
+    height: 3rem;
+    margin: 1rem 0.5rem;
+    font-size: 1.25rem;
+    font-weight: bold;
+    border-radius: 0.75rem;
+    border-style: solid;
+    background-color: ${(props) => props.isSelected ? '#5B7DD9' : 'transparent' };
+`
 
 // Pokedex
 
 export const Logo = styled.img`
     width: 20rem;
-    margin: 2rem 1rem;
+    margin: 5rem 1rem 2rem;
     z-index: 2;
 `
 export const WelcomeContainer = styled.div`
@@ -257,17 +324,24 @@ export const PaginationBar = styled.ul`
     list-style-type: none;
     display: flex;
     flex-wrap: wrap;
+    margin-bottom: 3rem;
     
     button{
-        width: 2rem
+        width: 2.5rem;
+        height: 2.5rem;
+        border-radius: 50%;
+        margin: 0.1rem;
+        border: 0;
     }
+
+
 `
 
 //Pokemon Page
 
 export const MainInfoContainer = styled.div`
     width: 90vw;
-    background-color: black;
+    background-color: lightgray;
     position: relative;
     z-index: 2;
     padding: 9rem 1rem 0 ;
@@ -319,7 +393,7 @@ export const TypeContainer = styled.div`
     align-items: center;
     justify-content: center;
     flex-wrap: wrap;
-    background-color: black;
+    background-color: lightgray;
     width: 90%;
     margin: 1rem;
     padding: 1rem;

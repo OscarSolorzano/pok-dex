@@ -8,6 +8,7 @@ import { CoverContainer,
         TrainerGif,
         WelcomeTitle
  } from './StyledComponents';
+import GoToSettings from './GoToSettings';
 
 
 const UserInput = () => {
@@ -42,6 +43,7 @@ const UserInput = () => {
                     </button>
                 </UsernameForm>
                 <BackgroundLogo src='/assets/pokeballPlain.svg'/>
+                <GoToSettings />
             </CoverContainer>
 
     );

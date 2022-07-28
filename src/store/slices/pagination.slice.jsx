@@ -4,12 +4,12 @@ export const paginationSlice = createSlice({
 	name: 'cardsPerPage',
     initialState: 4,
     reducers: {
-        changeUser: (state, action) =>{
+        changeCardsPerPage: (state, action) =>{
             return action.payload
         }
     }
 })
 
-export const { changeUser } = paginationSlice.actions;
+export const { changeCardsPerPage } = paginationSlice.actions;
 
 export default paginationSlice.reducer;
