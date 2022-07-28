@@ -46,7 +46,7 @@ const Settings = () => {
                 </div>
             </SettingContainer>
             <SettingContainer>
-                <h2>Pokemons Per Page</h2>
+                <h2>Pokémons Per Page</h2>
                 <div>
                     <PaginationButton
                     isSelected ={cardsPerPage == 4}

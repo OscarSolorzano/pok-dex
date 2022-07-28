@@ -10,10 +10,12 @@ import {
     WelcomeContainer,
     Trainer,
     SearchButton,
-    SearchType
+    SearchType,
+    CardContainer
 } from './StyledComponents'
 import Pagination from './Pagination';
 import GoBack from './GoBack';
+import GoToSettings from './GoToSettings';
 
 const Pokedex = () => {
 
@@ -88,20 +90,21 @@ const Pokedex = () => {
                     </form>)
                 }
             </WelcomeContainer>
-            <ul>
+            <CardContainer>
                 {currentCards.map(pokemon => (
                     <PokemonInfo
                         url={pokemon.url ? pokemon.url : pokemon.pokemon.url}
                         key={pokemon.url ? pokemon.url : pokemon.pokemon.url}
                     />
                 ))}
-            </ul>
+            </CardContainer>
             <Pagination
              totalCards={pokemons.length}
              paginate={paginate}
              currentPage={currentPage}
              />
             <BackgroundLogo src='/assets/pokeballPlain.svg' />
+            <GoToSettings/>
         </CoverContainer>
     );
 };

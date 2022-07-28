@@ -2,8 +2,9 @@ import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom'
 import GoBack from './GoBack';
+import typesColor from './typesColor.json'
 import {
-    CoverContainer,
+    PokemonCoverContainer,
     BackgroundLogo,
     Logo,
     MainInfoContainer,
@@ -15,8 +16,11 @@ import {
     Stat,
     Move
 } from './StyledComponents';
+import { useSelector } from 'react-redux';
 
 const Pokemon = () => {
+
+    const isDarktheme = useSelector(state => state.theme) 
 
     const [pokemon, setPokemon] = useState({})
 
@@ -27,8 +31,21 @@ const Pokemon = () => {
             .then(res => setPokemon(res.data))
     }, [id])
 
+    const getBackgroundColor = (PokemonType) =>{
+        let color = ''
+        typesColor.map((type) => {
+            if (type.type === PokemonType){
+                color = type.color
+            }
+        })
+        return color
+    }
+
     return (
-        <CoverContainer>
+        <PokemonCoverContainer
+        isDarktheme={isDarktheme}
+         bgColor={getBackgroundColor(pokemon.types?.[0].type.name)}
+         >
             <GoBack />
             <Logo src='/assets/logo.png' />
             <MainInfoContainer>
@@ -57,7 +74,10 @@ const Pokemon = () => {
                     <hr />
                 </div>
                 {pokemon.types?.map(type => (
-                    <Type key={type.type.name}>
+                    <Type 
+                    typeColor={getBackgroundColor(type.type.name)}
+                    key={type.type.name}
+                    >
                         {type.type.name}
                     </Type>
                 ))}
@@ -129,7 +149,7 @@ const Pokemon = () => {
             </TypeContainer>
 
             <BackgroundLogo src='/assets/pokeballPlain.svg' />
-        </CoverContainer>
+        </PokemonCoverContainer>
     );
 };
 

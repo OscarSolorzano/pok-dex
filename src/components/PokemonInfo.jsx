@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import typesColor from './typesColor.json';
 import {
     Card,
     CardBg,
@@ -13,14 +14,28 @@ const PokemonInfo = ({ url }) => {
 
     const navigate = useNavigate()
 
+    const getBackgroundColor = (PokemonType) =>{
+        let color = ''
+        typesColor.map((type) => {
+            if (type.type === PokemonType){
+                color = type.color
+            }
+        })
+        return color
+    }
+
+
+
     useEffect(() => {
         axios.get(url)
             .then(res => setPokemon(res.data))
     }, [])
 
+    const bgColor = getBackgroundColor(pokemon.types?.[0].type.name)
+
     return (
-        <Card onClick={() => navigate(`/pokedex/${pokemon.id}`)}>
-            <CardBg>
+        <Card bgColor={bgColor} onClick={() => navigate(`/pokedex/${pokemon.id}`)}>
+            <CardBg bgColor={bgColor}>
                 <img src={pokemon.sprites?.other['official-artwork'].front_default} />
             </CardBg>
             <NameTypeContainer>

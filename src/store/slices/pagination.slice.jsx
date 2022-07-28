@@ -2,7 +2,7 @@ import { createSlice } from '@reduxjs/toolkit';
 
 export const paginationSlice = createSlice({
 	name: 'cardsPerPage',
-    initialState: 4,
+    initialState: 8,
     reducers: {
         changeCardsPerPage: (state, action) =>{
             return action.payload

@@ -144,6 +144,7 @@ export const UsernameForm = styled.form`
 
 export const SettingContainer = styled.div`
     width: 90%;
+    max-width: 40rem;
     border-style: solid;
     padding: 1rem;
     margin: 1rem;
@@ -266,23 +267,36 @@ export const SearchType = styled.button`
     border-radius: 1rem;
 `
 
+export const CardContainer = styled.ul`
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    max-width: 100rem;
+    @media (min-width: 768px) {
+        margin: 0 10rem;
+    }
+`
+
 export const Card = styled.div`
     width: 20rem;
     margin: 2rem 1rem;
     display: flex;
     flex-flow: column;
     align-items: center;
-    background-color: blue;
+    background-color: transparent;
+    backdrop-filter:invert(0.5%) ;
     border-radius: 1rem;
     border-style: solid;
     border-width: 0.5rem;
+    border-color: ${(prop) => prop.bgColor};
 
     h6{
         font-weight: normal;
     }
 `
 export const CardBg = styled.div`
-    background-color:red;
+    background-color: ${(prop) => prop.bgColor};
     width: 100%;
     height: 10rem;
     position: relative;
@@ -324,7 +338,7 @@ export const PaginationBar = styled.ul`
     list-style-type: none;
     display: flex;
     flex-wrap: wrap;
-    margin-bottom: 3rem;
+    margin-bottom: 5rem;
     
     button{
         width: 2.5rem;
@@ -339,9 +353,32 @@ export const PaginationBar = styled.ul`
 
 //Pokemon Page
 
+export const PokemonCoverContainer = styled.div`
+    width: 100vw;
+    height: 100%;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-flow: column;
+    background-color: ${(props) => (
+        props.isDarktheme?
+        '#292929':
+        props.bgColor
+    )};
+    color: ${({ theme }) => theme.text};
+    position: relative;
+    overflow: hidden;
+
+    h1{
+        z-index: 2;
+    }
+`
+
 export const MainInfoContainer = styled.div`
     width: 90vw;
-    background-color: lightgray;
+    max-width: 50rem;
+    background-color: ${({ theme }) => theme.bg2} ;
     position: relative;
     z-index: 2;
     padding: 9rem 1rem 0 ;
@@ -393,8 +430,9 @@ export const TypeContainer = styled.div`
     align-items: center;
     justify-content: center;
     flex-wrap: wrap;
-    background-color: lightgray;
+    background-color: ${({ theme }) => theme.bg2};
     width: 90%;
+    max-width: 50rem;
     margin: 1rem;
     padding: 1rem;
     border-radius: 1rem;
@@ -413,7 +451,7 @@ export const TypeContainer = styled.div`
     }
 `
 export const Type = styled.p`
-    background-color: white;
+    background-color: ${(prop) => prop.typeColor};
     width: 90%;
     font-size: 2rem;
     text-align: center;
@@ -440,7 +478,7 @@ export const Stat = styled.progress`
     width: 90%;
 `
 export const Move = styled.p`
-    background-color: gray;
+    background-color: ${({ theme }) => theme.bg3};
     padding: 0.35rem;
     border-radius: 0.5rem;
     margin: 0.35rem;
