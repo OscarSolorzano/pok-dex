@@ -21,7 +21,7 @@ export const BackgroundLogo = styled.img`
     top: -4rem;
     right: -12rem;
     z-index: 1;
-    filter: invert(97%) sepia(9%) saturate(94%) hue-rotate(223deg) brightness(116%) contrast(91%);
+    filter: ${({ theme }) => theme.logo} ;
     animation: rotateAnim 10s linear infinite;
     transition: ease-in-out .5s;
 
@@ -120,7 +120,7 @@ export const SwitchButton = styled.button`
         position: absolute;
         cursor: pointer;
         bottom: 5px;
-        left: ${({theme}) => (theme === true ? '55px' : '5px')};
+        left: ${({ theme }) => (theme === true ? '55px' : '5px')};
         width: 30px;
         height: 30px;
         border-radius: 50%;
@@ -261,4 +261,114 @@ export const PaginationBar = styled.ul`
     button{
         width: 2rem
     }
+`
+
+//Pokemon Page
+
+export const MainInfoContainer = styled.div`
+    width: 90vw;
+    background-color: black;
+    position: relative;
+    z-index: 2;
+    padding: 9rem 1rem 0 ;
+    margin-top: 11rem;
+    border-radius: 1rem;
+
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    img{
+        position: absolute;
+        top: -12rem;
+        width: 20rem;
+    }
+    hr{
+        width: 45%
+    }
+    div{
+        display: flex;
+        align-items: center;
+        justify-content: space-evenly;
+        width:100%;
+    }
+    h2{
+        padding: 0 0.5rem;
+        font-size: 2.5rem;
+    }
+    h3{
+        font-size:2rem;
+    }
+    p{
+        padding: 0.5rem;
+    }
+`
+export const HeightWeightContainer = styled.div`
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    width:100%;
+    padding: 1rem 0;
+    
+    div{
+        display: flex;
+        flex-flow: column;
+    }
+`
+export const TypeContainer = styled.div`
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    background-color: black;
+    width: 90%;
+    margin: 1rem;
+    padding: 1rem;
+    border-radius: 1rem;
+    h2{
+        font-size: 2rem;
+        padding: 0.5rem 0.5rem;
+    }
+    hr{
+        width: 45%;
+    }
+    div{
+        display: flex;
+        align-items: center;
+        justify-content: space-evenly;
+        width:100%;
+    }
+`
+export const Type = styled.p`
+    background-color: white;
+    width: 90%;
+    font-size: 2rem;
+    text-align: center;
+    margin: 0.5rem;
+    padding: 0.5rem;
+    border-radius: 1rem;
+`
+export const Ability = styled.p`
+    background-color: white;
+    width: 90%;
+    font-size: 2rem;
+    text-align: center;
+    margin: 0.5rem;
+    padding: 0.5rem;
+    border-radius: 1rem;
+`
+export const BaseStatContainer = styled.div`
+    display: flex;
+    flex-flow: column;
+    padding: 0.5rem;
+`
+
+export const Stat = styled.progress`
+    width: 90%;
+`
+export const Move = styled.p`
+    background-color: gray;
+    padding: 0.35rem;
+    border-radius: 0.5rem;
+    margin: 0.35rem;
+
 `

@@ -6,7 +6,6 @@ import {
     CardBg,
     StatContainer,
     NameTypeContainer
-
 } from './StyledComponents'
 const PokemonInfo = ({ url }) => {
 
